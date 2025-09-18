@@ -144,7 +144,6 @@
         line-height: 1.4;
         text-align: center;
     }
-    .streak-badge.tone-accent{background:#e8f0ff;border-color:#bfdbfe;color:#1e3a8a}
     .streak-badge.tone-purple{background:#f3e8ff;border-color:#e9d5ff;color:#6b21a8}
     .streak-badge.tone-indigo{background:#eef2ff;border-color:#c7d2fe;color:#3730a3}
     .streak-badge.tone-sky{background:#e0f2fe;border-color:#bae6fd;color:#075985}
@@ -153,15 +152,9 @@
     .streak-badge.tone-yellow{background:#fef9c3;border-color:#fde68a;color:#7c2d12}
     .streak-badge.tone-orange{background:#ffedd5;border-color:#fed7aa;color:#9a3412}
     .streak-badge.tone-red{background:#fee2e2;border-color:#fecaca;color:#7f1d1d}
-    .streak-badge.tone-black{background:#e5e7eb;border-color:#cbd5e1;color:#111827}
+    .streak-badge.tone-pink{background:#fff1f2; border-color:#f472b6; color:#be185d; }
     .streak-badge.tone-silver{background:#f1f5f9;border-color:#cbd5e1;color:#334155}
-    .streak-badge.tone-gold{background:#fef3c7;border-color:#fcd34d;color:#92400e}
-    
-    .streak-badge.tone-epic { background:#f3e8ff; border-color:#c084fc; color:#7e22ce; }
-    .streak-badge.tone-legendary { background:#fff1f2; border-color:#f472b6; color:#be185d; }
-    .streak-badge.tone-mythic { background:#e0f2fe; border-color:#7dd3fc; color:#0369a1; }
-    .streak-badge.tone-godlike { background:#dcfce7; border-color:#86efac; color:#15803d; }
-    .streak-badge.tone-meister { background: linear-gradient(145deg, #fefce8, #fef9c3); border-color:#facc15; color:#a16207; }
+    .streak-badge.tone-gold { background: linear-gradient(145deg, #fefce8, #fef9c3); border-color:#facc15; color:#a16207; }
 
     #fullscreen-reward {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;
@@ -170,9 +163,15 @@
       opacity: 0; pointer-events: none; overflow: hidden;
     }
     #fullscreen-reward.visible { opacity: 1; }
-    #fullscreen-reward-content h1 { font-size: 4rem; font-weight: bold; animation: textGlow 1.5s ease-in-out infinite alternate; }
+    #fullscreen-reward-content h1 { font-weight: bold; font-size: clamp(2rem, 12vw, 4.5rem); }
+    #fullscreen-reward-content h1.gold { animation: textGlowGold 1.5s ease-in-out infinite alternate; }
     #fullscreen-reward-content h1.silver { animation: textGlowSilver 1.5s ease-in-out infinite alternate; }
-    @keyframes textGlow {
+    #fullscreen-reward-content h1.black { animation: textGlowBlack 1.5s ease-in-out infinite alternate; }
+    #fullscreen-reward-content h1.epic { animation: textGlowEpic 1.5s ease-in-out infinite alternate; }
+    #fullscreen-reward-content h1.legendary { animation: textGlowLegendary 1.5s ease-in-out infinite alternate; }
+    #fullscreen-reward-content h1.mythic { animation: textGlowMythic 1.5s ease-in-out infinite alternate; }
+
+    @keyframes textGlowGold {
       from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #facc15, 0 0 40px #facc15, 0 0 50px #facc15, 0 0 60px #facc15, 0 0 70px #facc15; }
       to { text-shadow: 0 0 20px #fff, 0 0 30px #fef08a, 0 0 40px #fef08a, 0 0 50px #fef08a, 0 0 60px #fef08a, 0 0 70px #fef08a, 0 0 80px #fef08a; }
     }
@@ -180,19 +179,27 @@
       from { text-shadow: 0 0 10px #fff, 0 0 20px #e0e0e0, 0 0 30px #c0c0c0, 0 0 40px #c0c0c0, 0 0 50px #c0c0c0, 0 0 60px #c0c0c0, 0 0 70px #c0c0c0; }
       to { text-shadow: 0 0 20px #fff, 0 0 30px #dcdcdc, 0 0 40px #dcdcdc, 0 0 50px #dcdcdc, 0 0 60px #dcdcdc, 0 0 70px #dcdcdc, 0 0 80px #dcdcdc; }
     }
+    @keyframes textGlowBlack {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #e0e0e0, 0 0 30px #b0b0b0, 0 0 40px #b0b0b0; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #c0c0c0, 0 0 40px #c0c0c0, 0 0 50px #c0c0c0; }
+    }
+    @keyframes textGlowEpic {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #e9d5ff, 0 0 30px #c084fc, 0 0 40px #c084fc; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #d8b4fe, 0 0 40px #d8b4fe, 0 0 50px #d8b4fe; }
+    }
+    @keyframes textGlowLegendary {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #fbcfe8, 0 0 30px #f472b6, 0 0 40px #f472b6; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #f9a8d4, 0 0 40px #f9a8d4, 0 0 50px #f9a8d4; }
+    }
+    @keyframes textGlowMythic {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #bae6fd, 0 0 30px #7dd3fc, 0 0 40px #7dd3fc; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #a5f3fc, 0 0 40px #a5f3fc, 0 0 50px #a5f3fc; }
+    }
     
     .particle { position: absolute; }
     .petal { top: -20px; width: 15px; height: 15px; background-color: #ffb7c5; border-radius: 50% 0; animation: fall-and-sway 7s linear forwards; }
     .confetti { top: -20px; width: 8px; height: 15px; animation: fall-and-spin 7s linear forwards; }
-    .snowflake { top: -20px; font-size: 20px; color: #fff; animation: fall-and-sway 12s linear infinite; }
-    .explosion { position: absolute; width: 1px; height: 1px; }
-    .explosion .particle { position: absolute; left: 0; top: 0; width: 8px; height: 8px; border-radius: 50%; animation: explode 1.2s ease-out forwards; }
-    .bubble { border-radius: 50%; animation: float 10s linear forwards; border: 1px solid rgba(255,255,255,0.2); background: radial-gradient(circle at 65% 15%, white 1px, rgba(255,255,255,0.5) 3%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.1) 100%); }
     
-    @keyframes explode {
-        0% { transform: translate(0, 0) scale(1); opacity: 1; }
-        100% { transform: translate(var(--explode-x), var(--explode-y)) scale(0); opacity: 0; }
-    }
     @keyframes fall-and-sway {
       0% { transform: translateY(-10vh) translateX(0) rotate(var(--r-start)); opacity: 1; }
       100% { transform: translateY(110vh) translateX(calc(var(--sway) * 2)) rotate(calc(var(--r-start) + 360deg)); opacity: 0; }
@@ -200,13 +207,6 @@
     @keyframes fall-and-spin {
       0% { transform: translateY(0) rotateX(0) rotateY(0); opacity: 1; }
       100% { transform: translateY(110vh) rotateX(var(--rx)) rotateY(var(--ry)); opacity: 0; }
-    }
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-      25% { transform: translateY(-30vh) translateX(var(--wobble)); opacity: 0.9; }
-      50% { transform: translateY(-60vh) translateX(calc(var(--wobble) * -1)); opacity: 1; }
-      75% { transform: translateY(-90vh) translateX(var(--wobble)); opacity: 0.9; }
-      100% { transform: translateY(-120vh) translateX(0); opacity: 0; }
     }
 
     #achievements { margin-bottom: 20px; }
@@ -267,13 +267,13 @@
     <div class="card" id="test-controls" style="margin-top:20px;" hidden>
       <h3 style="font-size:14px; color:var(--muted); margin:0 0 10px;">ご褒美動作テスト用（暫定）</h3>
       <div class="row" style="flex-wrap: wrap; gap: 8px;">
-        <button class="btn tiny" id="test-streak-10">連続10回</button>
-        <button class="btn tiny" id="test-streak-60">桜吹雪</button>
-        <button class="btn tiny" id="test-confetti">紙吹雪</button>
-        <button class="btn tiny" id="test-gold-silver">金銀吹雪</button>
-        <button class="btn tiny" id="test-snowflakes">雪の結晶</button>
-        <button class="btn tiny" id="test-bubbles">シャボン玉</button>
-        <button class="btn tiny" id="test-fireworks">花火</button>
+        <button class="btn tiny" id="test-streak-20">連続20回</button>
+        <button class="btn tiny" id="test-streak-30">連続30回</button>
+        <button class="btn tiny" id="test-streak-40">連続40回</button>
+        <button class="btn tiny" id="test-streak-50">連続50回</button>
+        <button class="btn tiny" id="test-streak-60">連続60回</button>
+        <button class="btn tiny" id="test-streak-70">連続70回</button>
+        <button class="btn tiny" id="test-streak-80">連続80回</button>
         <button class="btn tiny" id="test-streak-90">連続90回</button>
         <button class="btn tiny" id="test-streak-100">連続100回</button>
       </div>
@@ -356,7 +356,7 @@
     {"sentence":"Der neue Computer funktioniert gut.","adj":"neue","correct":"neue","choices":["neue","neuer","neuen"],"kase":"Nominativ","gender":"masculine","article":"definite","level":"A1","jp":"その新しいコンピューターは正常に動作します。"},
   ];
 
-  const DETERMINER={definite:{masculine:{Nominativ:'der',Akkusativ:'den',Dativ:'dem',Genitiv:'des'},neuter:{Nominativ:'das',Akkusativ:'das',Dativ:'dem',Genitiv:'des'},feminine:{Nominativ:'die',Akkusativ:'die',Dativ:'der',Genitiv:'der'},plural:{Nominativ:'die',Akkusativ:'die',Dativ:'den',Genitiv:'der'}},indefinite:{masculine:{Nominativ:'ein',Akkusativ:'einen',Dativ:'einem',Genitiv:'eines'},neuter:{Nominativ:'ein',Akkusativ:'ein',Dativ:'einem',Genitiv:'eines'},feminine:{Nominativ:'eine',Akkusativ:'eine',Dativ:'einer',Genitiv:'einer'},plural:{nominativ:'meine',Akkusativ:'meine',Dativ:'meinen',Genitiv:'meiner'}},none:{masculine:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},neuter:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},feminine:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},plural:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''}}};
+  const DETERMINER={definite:{masculine:{Nominativ:'der',Akkusativ:'den',Dativ:'dem',Genitiv:'des'},neuter:{Nominativ:'das',Akkusativ:'das',Dativ:'dem',Genitiv:'des'},feminine:{Nominativ:'die',Akkusativ:'die',Dativ:'der',Genitiv:'der'},plural:{Nominativ:'die',Akkusativ:'die',Dativ:'den',Genitiv:'der'}},indefinite:{masculine:{Nominativ:'ein',Akkusativ:'einen',Dativ:'einem',Genitiv:'eines'},neuter:{Nominativ:'ein',Akkusativ:'ein',Dativ:'einem',Genitiv:'eines'},feminine:{Nominativ:'eine',Akkusativ:'eine',Dativ:'einer',Genitiv:'einer'},plural:{Nominativ:'meine',Akkusativ:'meine',Dativ:'meinen',Genitiv:'meiner'}},none:{masculine:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},neuter:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},feminine:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''},plural:{Nominativ:'',Akkusativ:'',Dativ:'',Genitiv:''}}};
   const EXAMPLE_NOUNS={default:{masculine:{base:'Wein',gen:'Weins'},neuter:{base:'Brot',gen:'Brotes'},feminine:{base:'Milch',gen:'Milch'},plural:{base:'Freunde',datpl:'Freunden',genpl:'Freunde'}},indefinite:{masculine:{base:'Vater',gen:'Vaters'},neuter:{base:'Kind',gen:'Kindes'},feminine:{base:'Mutter',gen:'Mutter'},plural:{base:'Freunde',datpl:'Freunden',genpl:'Freunde'}}};
   const ADJ_STEM='gut';
   let state={level:'All',pool:[],order:[],idx:0,correct:0,total:0,streak:0,retries:0,filters:{cases:{Nominativ:true,Akkusativ:true,Dativ:true,Genitiv:true},articles:{definite:true,indefinite:true,none:true},genders:{masculine:true,neuter:true,feminine:true,plural:true}}};
@@ -437,20 +437,22 @@
       if(!questionAnsweredCorrectly){
         state.streak++;
         const s = state.streak;
-        if (s === 100) {
-          triggerPulse(s); showFullscreenReward(); unlockSprachmeisterBadge();
-        } else if (s === 90) {
-          triggerPulse(s); show90StreakReward();
-        } else if (s >= 50 && s < 90 && s % 10 === 0) {
-          triggerPulse(s);
-          if (s >= 60) {
+        if (s === 20 || s === 30 || s === 40) {
+            triggerPulse(s);
             const container = document.getElementById('fullscreen-reward');
             if(container){
               container.innerHTML=''; container.style.background='transparent'; container.style.pointerEvents='none';
               container.hidden=false; void container.offsetWidth; container.classList.add('visible');
-              showCherryBlossoms();
-              setTimeout(()=>{container.classList.remove('visible');container.innerHTML='';container.hidden=true}, 10000);
+              if (s === 20) showConfetti(['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722']);
+              if (s === 30) showCherryBlossoms();
+              if (s === 40) showConfetti(['#ffd700','#c0c0c0','#f0e68c']);
+              setTimeout(()=>{container.classList.remove('visible');container.innerHTML='';container.hidden=true}, 5000);
             }
+        } else if (s >= 50 && s % 10 === 0) {
+          triggerPulse(s);
+          showMilestoneAnimation(s);
+          if (s === 100) {
+            unlockSprachmeisterBadge();
           }
         } else {
           triggerPulse(s);
@@ -508,20 +510,93 @@
   function mountRef(a='definite'){currentArticle=a;const t=document.querySelectorAll('.ref-tabs button');t.forEach(b=>b.classList.toggle('active',b.dataset.article===a));const w=document.getElementById('refTableWrap');w.innerHTML='';const c=document.getElementById('refControls');c.innerHTML='';const g=[{key:'masculine',label:'男性名詞'},{key:'neuter',label:'中性名詞'},{key:'feminine',label:'女性名詞'},{key:'plural',label:'複数形'}];g.forEach(e=>{const b=document.createElement('button');b.textContent=e.label;b.dataset.gender=e.key;if(e.key===currentGender)b.classList.add('active');b.onclick=()=>{currentGender=e.key;c.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');showExamples(a,e.key);applyGenderHighlight();checkEasterEgg()};c.appendChild(b)});showExamples(a,currentGender);w.appendChild(buildReferenceTable(a));applyGenderHighlight()}
   
   // --- Rewards & Animations ---
-  const STREAK_BADGES={2:'Gut! いいね！',3:'Prima! すてき！',4:'Toll! すごい！',5:'Super! 最高！',6:'Klasse! 素晴らしい！',7:'Spitze! 抜群だ！',8:'Stark! さすが！',9:'Bravo! ブラボー！',10:'Genial! 天才的だ！',20:'Wahnsinn! 半端ない！',30:'Fantastisch! 素晴らしい！',40:'Ausgezeichnet! 秀逸だ！',50:'Legendär! 伝説的だ！',60:'Galaktisch! 銀河級だ！',70:'Göttlich! 神業だ！',80:'Kosmisch! 宇宙レベル！',90:'Nicht von dieser Welt!',100:'Sprachmeister!'};
-  function colorKeyForStreak(s){if(s>=100)return'meister';if(s>=90)return'godlike';if(s>=80)return'mythic';if(s>=70)return'legendary';if(s>=60)return'epic';if(s>=50)return'black';if(s>=40)return'red';if(s>=30)return'orange';if(s>=20)return'yellow';if(s>=10)return'lime';if(s>=5)return'green';if(s>=4)return'sky';if(s>=3)return'indigo';if(s>=2)return'purple';return'accent'}
-  function buildStreakBadge(s){let l=0;for(const k in STREAK_BADGES){const m=parseInt(k,10);if(s>=m&&m>l)l=m}if(l===0)return'';let msg=STREAK_BADGES[l];const t=colorKeyForStreak(l);return`<span class="streak-badge tone-${t}" title="${s}連続正解">${msg}</span>`}
+  const STREAK_BADGES = {
+    2: 'Gut! いいね！', 3: 'Prima! すてき！', 4: 'Toll! すごい！', 5: 'Super! 最高！', 6: 'Klasse! 素晴らしい！', 7: 'Spitze! 抜群だ！', 8: 'Stark! さすが！', 9: 'Bravo! ブラボー！',
+    10: 'Genial! 天才的だ！', 11: 'Großartig! 偉大だ！', 12: 'Wunderbar! 見事だ！', 13: 'Perfekt! 完璧だ！', 14: 'Sehr gut! 非常に良い！', 15: 'Brillant! 輝かしい！', 16: 'Fantastisch! 素晴らしい！', 17: 'Ausgezeichnet! 秀逸だ！', 18: 'Hervorragend! 優秀だ！', 19: 'Meisterhaft! 達人級だ！',
+    20: 'Wahnsinn! 半端ない！', 21: 'Eindrucksvoll! 印象的だ！', 22: 'Beeindruckend! 感銘深い！', 23: 'Erstaunlich! 驚くべき！', 24: 'Imposant! 圧倒的だ！', 25: 'Phänomenal! 驚異的だ！', 26: 'Sensationell! 感動的だ！', 27: 'Spektakulär! 圧巻だ！', 28: 'Unglaublich! 信じられない！', 29: 'Überwältigend! 圧倒的だ！',
+    30: 'Unfassbar! 理解を超える！', 31: 'Außerordentlich! 並外れている！', 32: 'Bemerkenswert! 注目すべき！', 33: 'Verblüffend! 驚愕的だ！', 34: 'Atemberaubend! 息を呑む！', 35: 'Umwerfend! 圧倒的だ！', 36: 'Weltklasse! 世界レベル！', 37: 'Außergewöhnlich! 異次元だ！', 38: 'Unvergleichlich! 比類ない！', 39: 'Überragend! 抜群だ！',
+    40: 'Unwiderstehlich! 圧倒的だ！', 41: 'Unschlagbar! 無敵だ！', 42: 'Unaufhaltsam! 誰にも止められない！', 43: 'Grenzenlos! 限界知らず！', 44: 'Unüberwindlich! 不屈だ！', 45: 'Unstoppbar! 止まらない！', 46: 'Unbesiegbar! 無敗だ！', 47: 'Unübertrefflich! 無比だ！', 48: 'Beispiellos! 前例がない！', 49: 'Einzigartig! 唯一無二だ！',
+    50: 'Legendär! 伝説的だ！', 60: 'Galaktisch! 銀河級だ！', 70: 'Göttlich! 神業だ！', 80: 'Kosmisch! 宇宙レベル！', 90: 'Historisch! 歴史的快挙', 100: 'Sprachmeister! 言語の達人！'
+  };
+
+  function colorKeyForStreak(s) {
+    if (s >= 100) return 'gold';
+    if (s >= 90) return 'silver';
+    if (s >= 80) return 'pink';
+    if (s >= 70) return 'red';
+    if (s >= 60) return 'orange';
+    if (s >= 50) return 'yellow';
+    if (s >= 40) return 'lime';
+    if (s >= 30) return 'green';
+    if (s >= 20) return 'sky';
+    if (s >= 10) return 'indigo';
+    if (s >= 2) return 'purple';
+    return 'accent';
+  }
+
+  function buildStreakBadge(s){
+    let msg = '';
+    if (STREAK_BADGES[s]) {
+      msg = STREAK_BADGES[s];
+    } else {
+      let lastApplicableStreak = 0;
+      for (const key in STREAK_BADGES) {
+          const streakMilestone = parseInt(key, 10);
+          if (s >= streakMilestone && streakMilestone > lastApplicableStreak) {
+              lastApplicableStreak = streakMilestone;
+          }
+      }
+      if (lastApplicableStreak > 0) {
+        msg = STREAK_BADGES[lastApplicableStreak];
+      }
+    }
+    if (!msg) return '';
+    const t = colorKeyForStreak(s);
+    return `<span class="streak-badge tone-${t}" title="${s}連続正解">${msg}</span>`;
+  }
+  
   function triggerPulse(s){const c=document.getElementById('quiz');if(!c)return;c.classList.remove('pulse');void c.offsetWidth;c.classList.add('pulse');clearTimeout(c._pulseTimer);c._pulseTimer=setTimeout(()=>{c.classList.remove('pulse')},900)}
-  function showCherryBlossoms(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#ffb7c5','#ffc0cb','#ffe4e1','#fff0f5'];const pC=70;for(let i=0;i<pC;i++){const p=document.createElement('div');p.className='particle petal';p.style.left=Math.random()*100+'vw';const d=5+Math.random()*4,a=Math.random()*5;p.style.animationDuration=`${d}s`;p.style.animationDelay=`${a}s`;p.style.backgroundColor=o[Math.floor(Math.random()*o.length)];p.style.setProperty('--sway',`${Math.random()*50-25}px`);p.style.setProperty('--r-start',`${Math.random()*360}deg`);c.appendChild(p)}}
+  
+  function showConfetti(colors){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=colors;const cC=100;for(let i=0;i<cC;i++){const f=document.createElement('div');f.className='particle confetti';f.style.left=Math.random()*100+'vw';const d=2+Math.random()*2,a=Math.random()*5;f.style.animationDuration=`${d}s`;f.style.animationDelay=`${a}s`;f.style.backgroundColor=o[Math.floor(Math.random()*o.length)];f.style.setProperty('--rx',`${Math.random()*720}deg`);f.style.setProperty('--ry',`${Math.random()*720}deg`);c.appendChild(f)}}
   function showGoldenPetals(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#ffd700', '#f0e68c', '#fffacd', '#fafad2'];const pC=70;for(let i=0;i<pC;i++){const p=document.createElement('div');p.className='particle petal';p.style.left=Math.random()*100+'vw';const d=5+Math.random()*4,a=Math.random()*5;p.style.animationDuration=`${d}s`;p.style.animationDelay=`${a}s`;p.style.backgroundColor=o[Math.floor(Math.random()*o.length)];p.style.setProperty('--sway',`${Math.random()*50-25}px`);p.style.setProperty('--r-start',`${Math.random()*360}deg`);c.appendChild(p)}}
-  function showConfetti(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722'];const cC=100;for(let i=0;i<cC;i++){const f=document.createElement('div');f.className='particle confetti';f.style.left=Math.random()*100+'vw';const d=2+Math.random()*2,a=Math.random()*5;f.style.animationDuration=`${d}s`;f.style.animationDelay=`${a}s`;f.style.backgroundColor=o[Math.floor(Math.random()*o.length)];f.style.setProperty('--rx',`${Math.random()*720}deg`);f.style.setProperty('--ry',`${Math.random()*720}deg`);c.appendChild(f)}}
-  function showGoldSilverConfetti(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#ffd700','#c0c0c0','#f0e68c'];const cC=100;for(let i=0;i<cC;i++){const f=document.createElement('div');f.className='particle confetti';f.style.left=Math.random()*100+'vw';const d=2+Math.random()*2,a=Math.random()*5;f.style.animationDuration=`${d}s`;f.style.animationDelay=`${a}s`;f.style.backgroundColor=o[Math.floor(Math.random()*o.length)];f.style.setProperty('--rx',`${Math.random()*720}deg`);f.style.setProperty('--ry',`${Math.random()*720}deg`);c.appendChild(f)}}
-  function showSilverConfetti(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#c0c0c0','#e0e0e0','#f5f5f5','#d3d3d3'];const cC=100;for(let i=0;i<cC;i++){const f=document.createElement('div');f.className='particle confetti';f.style.left=Math.random()*100+'vw';const d=3+Math.random()*3,a=Math.random()*5;f.style.animationDuration=`${d}s`;f.style.animationDelay=`${a}s`;f.style.backgroundColor=o[Math.floor(Math.random()*o.length)];f.style.setProperty('--rx',`${Math.random()*720}deg`);f.style.setProperty('--ry',`${Math.random()*720}deg`);c.appendChild(f)}}
-  function showSnowflakes(){const c=document.getElementById('fullscreen-reward');if(!c)return;const k=['❄','❅','❆'];const sC=150;for(let i=0;i<sC;i++){const s=document.createElement('div');s.className='particle snowflake';s.textContent=k[Math.floor(Math.random()*k.length)];s.style.left=Math.random()*100+'vw';const d=8+Math.random()*7,a=(Math.random()*15);s.style.animationDuration=`${d}s`;s.style.animationDelay=`${a}s`;s.style.animationIterationCount='infinite';s.style.fontSize=`${12+Math.random()*18}px`;s.style.setProperty('--sway',`${Math.random()*80-40}px`);s.style.setProperty('--r-start',`${Math.random()*360}deg`);c.appendChild(s)}}
-  function showFireworksExplosions(){const c=document.getElementById('fullscreen-reward');if(!c)return;const fC=40,o=['#ff4500','#ff8c00','#ffd700','#adff2f','#00ced1','#1e90ff','#da70d6','#ff1493'];for(let i=0;i<fC;i++){const e=document.createElement('div');e.className='explosion';e.style.left=`${10+Math.random()*80}%`;e.style.top=`${10+Math.random()*80}%`;const pC=150;for(let j=0;j<pC;j++){const p=document.createElement('div');p.className='particle';p.style.backgroundColor=o[Math.floor(Math.random()*o.length)];const a=Math.random()*360,d=250+Math.random()*150;p.style.setProperty('--explode-x',`${Math.cos(a*Math.PI/180)*d}px`);p.style.setProperty('--explode-y',`${Math.sin(a*Math.PI/180)*d}px`);p.style.animationDelay=`${Math.random()*9}s`;e.appendChild(p)}c.appendChild(e)}}
-  function showBubbles(){const c=document.getElementById('fullscreen-reward');if(!c)return;const bC=40;for(let i=0;i<bC;i++){const b=document.createElement('div');b.className='particle bubble';const s=10+Math.random()*40;b.style.width=`${s}px`;b.style.height=`${s}px`;b.style.left=`${Math.random()*100}vw`;b.style.top=`${100+Math.random()*20}vh`;b.style.animationDelay=`${Math.random()*5}s`;b.style.animationDuration=`${5+Math.random()*8}s`;b.style.setProperty('--wobble',`${Math.random()*200-100}px`);c.appendChild(b)}}
-  function showFullscreenReward(){const c=document.getElementById('fullscreen-reward');if(!c)return;c.innerHTML=`<div id="fullscreen-reward-content"><h1>${STREAK_BADGES[100]}</h1></div>`;c.style.background='rgba(0, 0, 0, 0.7)';c.style.pointerEvents='auto';c.hidden=false;void c.offsetWidth;c.classList.add('visible');showGoldenPetals();setTimeout(()=>{c.classList.remove('visible');c.innerHTML='';c.hidden=true},10000)}
-  function show90StreakReward(){const c=document.getElementById('fullscreen-reward');if(!c)return;const t=STREAK_BADGES[90].replace('<br>',' ');c.innerHTML=`<div id="fullscreen-reward-content"><h1 class="silver">${t}</h1></div>`;c.style.background='rgba(10,10,30,0.7)';c.style.pointerEvents='auto';c.hidden=false;void c.offsetWidth;c.classList.add('visible');showSilverConfetti();setTimeout(()=>{c.classList.remove('visible');c.innerHTML='';c.hidden=true},10000)}
+  function showCherryBlossoms(){const c=document.getElementById('fullscreen-reward');if(!c)return;const o=['#ffb7c5','#ffc0cb','#ffe4e1','#fff0f5'];const pC=70;for(let i=0;i<pC;i++){const p=document.createElement('div');p.className='particle petal';p.style.left=Math.random()*100+'vw';const d=5+Math.random()*4,a=Math.random()*5;p.style.animationDuration=`${d}s`;p.style.animationDelay=`${a}s`;p.style.backgroundColor=o[Math.floor(Math.random()*o.length)];p.style.setProperty('--sway',`${Math.random()*50-25}px`);p.style.setProperty('--r-start',`${Math.random()*360}deg`);c.appendChild(p)}}
+
+  function showMilestoneAnimation(streak) {
+      const container = document.getElementById('fullscreen-reward');
+      if (!container) return;
+
+      const MILESTONE_CONFIG = {
+          100: { text: STREAK_BADGES[100].split('! ')[0] + '!', glowClass: 'gold', particleFunc: showGoldenPetals, bg: 'rgba(0, 0, 0, 0.7)' },
+          90:  { text: STREAK_BADGES[90].split('! ')[0] + '!', glowClass: 'silver', particleFunc: () => showConfetti(['#c0c0c0','#e0e0e0','#f5f5f5']), bg: 'rgba(10, 10, 30, 0.7)' },
+          80:  { text: STREAK_BADGES[80].split('! ')[0] + '!', glowClass: 'mythic', particleFunc: () => showConfetti(['#bae6fd','#7dd3fc','#a5f3fc']), bg: 'rgba(10, 20, 40, 0.7)' },
+          70:  { text: STREAK_BADGES[70].split('! ')[0] + '!', glowClass: 'legendary', particleFunc: () => showConfetti(['#fbcfe8','#f472b6','#f9a8d4']), bg: 'rgba(40, 10, 20, 0.7)' },
+          60:  { text: STREAK_BADGES[60].split('! ')[0] + '!', glowClass: 'epic', particleFunc: () => showConfetti(['#e9d5ff','#c084fc','#d8b4fe']), bg: 'rgba(20, 10, 40, 0.7)' },
+          50:  { text: STREAK_BADGES[50].split('! ')[0] + '!', glowClass: 'black', particleFunc: () => showConfetti(['#c0c0c0','#e0e0e0','#f5f5f5']), bg: 'rgba(20, 20, 20, 0.7)' },
+      };
+
+      const config = MILESTONE_CONFIG[streak];
+      if (!config) return;
+
+      container.innerHTML = `<div id="fullscreen-reward-content"><h1 class="${config.glowClass}">${config.text}</h1></div>`;
+      container.style.background = config.bg;
+      container.style.pointerEvents = 'auto';
+      container.hidden = false;
+      void container.offsetWidth;
+      container.classList.add('visible');
+      
+      if (config.particleFunc) {
+          config.particleFunc();
+      }
+      
+      const duration = streak === 100 ? 10000 : 5000;
+
+      setTimeout(() => {
+          container.classList.remove('visible');
+          container.innerHTML = '';
+          container.hidden = true;
+      }, duration);
+  }
+
   function unlockSprachmeisterBadge(){if(sprachmeisterUnlocked)return;const a=document.getElementById('achievements'),t=document.getElementById('trophy-case');if(!a||!t)return;const c=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5m14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1Z"/></svg>`;const n=`<div class="trophy-badge" title="100連続正解おめでとうございます！">${c}<span>Sprachmeister!</span></div>`;t.innerHTML+=n;a.hidden=false;sprachmeisterUnlocked=true}
 
   // --- Initializers & Binders ---
@@ -542,15 +617,16 @@
 
   function setupTestButtons(){
     const runAnimation=(f, bg='transparent')=>{const c=document.getElementById('fullscreen-reward');if(c){c.innerHTML='';c.style.background=bg;c.style.pointerEvents='none';c.hidden=false;void c.offsetWidth;c.classList.add('visible');f();setTimeout(()=>{c.classList.remove('visible');c.innerHTML='';c.hidden=true},5000)}};
-    document.getElementById('test-streak-10')?.addEventListener('click',()=>{triggerPulse(10);const e=document.getElementById('exp'),s=buildStreakBadge(10);e.innerHTML=`<div class="result-full"><p class="result-line">${s}</p></div>`;e.hidden=false});
-    document.getElementById('test-streak-60')?.addEventListener('click',()=>runAnimation(showCherryBlossoms));
-    document.getElementById('test-confetti')?.addEventListener('click',()=>runAnimation(showConfetti));
-    document.getElementById('test-gold-silver')?.addEventListener('click',()=>runAnimation(showGoldSilverConfetti));
-    document.getElementById('test-snowflakes')?.addEventListener('click',()=>runAnimation(showSnowflakes, 'rgba(25, 25, 50, 0.5)'));
-    document.getElementById('test-bubbles')?.addEventListener('click',()=>runAnimation(showBubbles, 'radial-gradient(circle at top, #87CEEB, #1E90FF)'));
-    document.getElementById('test-fireworks')?.addEventListener('click',()=>runAnimation(showFireworksExplosions, 'rgba(0, 0, 10, 0.7)'));
-    document.getElementById('test-streak-90')?.addEventListener('click',()=>show90StreakReward());
-    document.getElementById('test-streak-100')?.addEventListener('click',()=>{showFullscreenReward();unlockSprachmeisterBadge()});
+    document.getElementById('test-streak-20')?.addEventListener('click',()=>runAnimation(()=>showConfetti(['#f44336','#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#03a9f4','#00bcd4','#009688','#4caf50','#8bc34a','#cddc39','#ffeb3b','#ffc107','#ff9800','#ff5722'])));
+    document.getElementById('test-streak-30')?.addEventListener('click',()=>runAnimation(showCherryBlossoms));
+    document.getElementById('test-streak-40')?.addEventListener('click',()=>runAnimation(()=>showConfetti(['#ffd700','#c0c0c0','#f0e68c'])));
+    document.getElementById('test-streak-50')?.addEventListener('click',()=>showMilestoneAnimation(50));
+    document.getElementById('test-streak-60')?.addEventListener('click',()=>showMilestoneAnimation(60));
+    document.getElementById('test-streak-70')?.addEventListener('click',()=>showMilestoneAnimation(70));
+    document.getElementById('test-streak-80')?.addEventListener('click',()=>showMilestoneAnimation(80));
+    document.getElementById('test-streak-90')?.addEventListener('click',()=>showMilestoneAnimation(90));
+    document.getElementById('test-streak-100')?.addEventListener('click',()=>{showMilestoneAnimation(100);unlockSprachmeisterBadge()});
+    
   }
 
   function initFilterControls(){
@@ -590,3 +666,4 @@
 </script>
 </body>
 </html>
+
